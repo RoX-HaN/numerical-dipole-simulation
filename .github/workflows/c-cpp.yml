@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4   # 🔥 updated version
 
-      - name: Compile C++ code
-        run: g++ 68174ba2-1b99-4741-a283-94dd19ced75d.cpp -o dipole
+      - name: Compile
+        run: g++ *.cpp -o program
 
-      - name: Run program
-        run: ./dipole
+      - name: Run
+        run: ./program
