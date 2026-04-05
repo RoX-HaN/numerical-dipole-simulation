@@ -1,23 +1,16 @@
-name: C/C++ CI
+name: C++ Build
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - uses: actions/checkout@v3
+
+      - name: Compile C++ code
+        run: g++ 68174ba2-1b99-4741-a283-94dd19ced75d.cpp -o dipole
+
+      - name: Run program
+        run: ./dipole
